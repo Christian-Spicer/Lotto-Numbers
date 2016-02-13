@@ -2,6 +2,7 @@ package lottoNumbers;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 import java.awt.AWTException;
@@ -35,7 +36,17 @@ public class FindNumbers {
 		while (again.contains("Y")){
 			while (amountOfLines < 6 || amountOfLines > 12){
 				System.out.print("Please choose The amount of lotto line between (6 - 12): ");
-				amountOfLines = sc.nextInt();
+				try {
+					amountOfLines = sc.nextInt();
+				}
+				catch(NumberFormatException nfe){
+	                System.out.println("Input was not an integer, please try again");
+	                sc.nextLine();
+	            }
+	            catch(InputMismatchException ims){
+	                System.out.println("Input was not an integer, please try again");
+	                sc.nextLine();
+	            }
 			}
 			System.out.println("\n\t\t===========================================");
 			System.out.println("\t\t\t\tLotto Numbers");
