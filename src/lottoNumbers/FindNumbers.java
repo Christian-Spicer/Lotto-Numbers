@@ -59,8 +59,20 @@ public class FindNumbers {
 			}
 			System.out.println("\t\t===========================================");
 			amountOfLines = 0;
-			System.out.print("Do you want to pick lotto numbers again? (y for Yes or n for No): ");
-			again = sc.next().toUpperCase();
+			boolean isValid = false;
+			while (!isValid)
+		    {
+				System.out.print("Do you want to pick lotto numbers again? (y for Yes or n for No): ");
+				again = sc.next().toUpperCase();
+				if (again.equalsIgnoreCase("y") || again.equalsIgnoreCase("n"))
+		        {
+		            isValid = true;
+		        }
+		        else
+		        {
+		            System.out.println("Invalid entry.");
+		        }
+		    }
 		}
 		sc.close();
 	}
